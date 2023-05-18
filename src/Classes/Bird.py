@@ -4,17 +4,15 @@ from src.constants import constants
 
 class Bird:
 
-    images_list = [constants.Bird.Bird_IMAGE_1.value,
-                   constants.Bird.Bird_IMAGE_2.value,
-                   constants.Bird.Bird_IMAGE_3.value]
-
-
     def __init__(self, x, y):
         """
         default constructor of the class
         :param x: starting x coordinate on the screen
         :param y: starting y coordinate on the screen
         """
+        self.images_list = [constants.Bird.Bird_IMAGE_1.value,
+                            constants.Bird.Bird_IMAGE_2.value,
+                            constants.Bird.Bird_IMAGE_3.value]
         self.x = x
         self.y = y
         self.tilt = 0
@@ -91,7 +89,7 @@ class Bird:
 
         # rotates the image:
         rotated_image = pygame.transform.rotate(self.image, self.tilt)
-        new_rec = rotated_image.get_rect(center=self.image.get_rect(toplef= (self.x, self.y)).center)
+        new_rec = rotated_image.get_rect(center=self.image.get_rect(topleft= (self.x, self.y)).center)
         win.blit(rotated_image, new_rec.topleft)
 
 
